@@ -1,12 +1,12 @@
 const mongoose = require ('mongoose')
 const validator = require ('validator')
-const userSchema = new mongoose.schema (
+const userSchema = new mongoose.Schema (
 { firstName :{
-    type : string,
+    type : String,
     require :  [true, "Please enter a valid firstName"],
 },
 lastName :{
-    type : string,
+    type : String,
     require : [true, "Please enter a valid lastName"],
 },
 phoneNumber: {

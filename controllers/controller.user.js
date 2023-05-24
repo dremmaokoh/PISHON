@@ -308,7 +308,7 @@ exports.verifyEmail = async (req, res, next) => {
       next(error);
     }
   };
-  exports.finduser = async (req, res, next) => {
+  exports.findUser = async (req, res, next) => {
     try {
       
       const id = req.params.id;
@@ -323,7 +323,7 @@ exports.verifyEmail = async (req, res, next) => {
     }
   };
 
-  exports.findAllUsers = async (req, res
+  exports.findUsers = async (req, res
     ) => {
       try {
         let { page, size, sort } = req.query;
