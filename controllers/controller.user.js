@@ -64,8 +64,8 @@ exports.signUp = async (req, res, next) => {
     const hashedPassword = await passwordHash(password);
 
     const user = new Customer({
-      firstname,
-      lastname,
+      firstName,
+      lastName,
       email,
       phoneNumber,
       password: hashedPassword,
