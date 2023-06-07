@@ -31,6 +31,7 @@ passport.use(
             username: profile.displayName,
             googleId: profile.id,
             thumbnail: profile._json.picture,
+            isVerified: "true"
           })
             .save()
             .then((newUser) => {
