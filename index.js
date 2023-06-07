@@ -35,8 +35,8 @@ server.use(
 }
 }))
 
-app.use(passport.initialize());
-app.use(passport.session());
+server.use(passport.initialize());
+server.use(passport.session());
 const passportSetup = require("./config/auth.js");
 
 // health check
@@ -44,7 +44,7 @@ server.get('/', (req, res) =>{
   res.send('<a href="/auth/google">Authenticate with Google</a>');
 });
 server.use("/api", user_router);
-app.use("/auth", authRoutes);
+server.use("/auth", authRoutes);
 
 
 
