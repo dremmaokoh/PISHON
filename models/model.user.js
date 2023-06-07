@@ -3,33 +3,33 @@ const validator = require ('validator')
 const userSchema = new mongoose.Schema (
 { firstName :{
     type : String,
-    require :  [true, "Please enter a valid firstName"],
+    // require :  [true, "Please enter a valid firstName"],
 },
 lastName :{
     type : String,
-    require : [true, "Please enter a valid lastName"],
+    // require : [true, "Please enter a valid lastName"],
 },
 phoneNumber: {
     type: String,
-    required: [true, "Please enter a valid phone number"],
+    // required: [true, "Please enter a valid phone number"],
   },
   email: {
     type: String,
-    required: true,
-    validate(value) {
-      if (!validator.isEmail(value)) {
-        throw new Error("Email is invalid");
-      }
-    },
+    // required: true,
+    // validate(value) {
+    //   if (!validator.isEmail(value)) {
+    //     throw new Error("Email is invalid");
+    //   }
+    // },
   },
   password: {
     type: String,
-    required: true,
-    validate(value) {
-      if (value.toLowerCase().includes("pass")) {
-        throw new Error("Passwords cannot contain 'pass'");
-      }
-    },
+    // required: true,
+    // validate(value) {
+    //   if (value.toLowerCase().includes("pass")) {
+    //     throw new Error("Passwords cannot contain 'pass'");
+    //   }
+    // },
   },
 
   emailtoken: {
