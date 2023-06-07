@@ -3,10 +3,12 @@ const express = require("express");
 const cors = require ('cors')
 const server = express();
 const morgan = require("morgan");
+const passport = require("passport");
 require("dotenv").config();
 const path = require("path");
 const connectDB = require("./config/db.js");
 const user_router = require("./routes/route.user");
+const authRoutes = require("./routes/route.auth");
  const cookieparser = require("cookie-parser");
  const session = require('express-session');
 
@@ -33,13 +35,16 @@ server.use(
 }
 }))
 
-
+app.use(passport.initialize());
+app.use(passport.session());
+const passportSetup = require("./config/auth.js");
 
 // health check
-server.get('/', (req, res) => {
-    res.status(200).json({ message: 'WELCOME TO PISHON 🍀🍀🍀' });
-  });
+server.get('/', (req, res) =>{
+  res.send('<a href="/auth/google">Authenticate with Google</a>');
+});
 server.use("/api", user_router);
+app.use("/auth", authRoutes);
 
 
 

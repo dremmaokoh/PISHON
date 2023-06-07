@@ -41,13 +41,16 @@ phoneNumber: {
     enum: ["true", "false"],
     default: "false",
   },
+  username: { type: String },
+    googleId: { type: String },
+    thumbnail: { type: String },
   date: {
     type: Date,
     default: Date.now(),
   },
 },
 {
-  timestamps: true,
+  collection: "User_Information", timestamps: true, versionKey: false
 }
 );
 
