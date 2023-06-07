@@ -1,14 +1,14 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth2").Strategy;
 require("dotenv").config();
-const Customer= require("../models/model.user");
+const Customer = require("../models/model.user");
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-    Customer.findById(id).then((user) => {
+  Customer.findById(id).then((user) => {
     done(null, user);
   });
 });
@@ -18,7 +18,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://stormy-goat-turtleneck.cyclic.app/auth/google/callback",
+      callbackURL:
+        "https://stormy-goat-turtleneck.cyclic.app/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       console.log(profile);
