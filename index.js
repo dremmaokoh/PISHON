@@ -9,6 +9,7 @@ const path = require("path");
 const connectDB = require("./config/db.js");
 const user_router = require("./routes/route.user");
 const authRoutes = require("./routes/route.auth");
+const contact_router = require("./routes/route.contactUs.js");
 const cookieparser = require("cookie-parser");
 const session = require("express-session");
 
@@ -41,6 +42,7 @@ server.get("/", (req, res) => {
   res.send('<a href="/auth/google">Authenticate with Google</a>');
 });
 server.use("/api", user_router);
+server.use("/api/v1", contact_router);
 server.use("/auth", authRoutes);
 
 //Listening to server

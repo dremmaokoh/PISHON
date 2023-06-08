@@ -87,10 +87,10 @@ exports.signUp = async (req, res, next) => {
     });
 
     const mailOptions = {
-      from: ' "Verify your email" <process.env.USER_MAIL>',
+      from: ' "PISHON" <process.env.USER_MAIL>',
       to: user.email,
-      subject: "PISHON - Verify your email",
-      html: `<h2> ${user.firstName} ${user.lastName} </h2> 
+      subject: "Verify your email",
+      html: `<h2> Dear ${user.firstName} ${user.lastName}, </h2> 
               <h2> Thank you for choosing PISHON  </h2> 
              <h4> Please verify your mail to continue..... </h4>
             <a href="${process.env.CLIENT_URL}/api/verify-email?token=${user.emailtoken}">Verify Your Email</a>   `,
@@ -217,10 +217,10 @@ exports.verifyEmail = async (req, res, next) => {
       });
   
       const mailOptions = {
-        from: ' "Verify your email" <process.env.USER_MAIL>',
+        from: ' "PISHON" <process.env.USER_MAIL>',
         to: user.email,
-        subject: "PISHON - Reset your password",
-        html: `<h2> ${user.firstName} ${user.lastName} </h2> 
+        subject: "Reset your password",
+        html: `<h2> Dear ${user.firstName} ${user.lastName}, </h2> 
                 <h2> Thank you for using PISHON  </h2> 
                <h4> Please click on the link to continue..... </h4>
                <a href="${process.env.CLIENT_URL}/api/reset-password/${user._id}/${token}">Reset Your Password</a>`,
